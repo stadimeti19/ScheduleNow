@@ -6,6 +6,11 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="home">ScheduleNow</string>
+    <string name="Classes">Classes</string>
+    <string name="Assignments">Assignments</string>
+    <string name="ToDo">To-Do</string>
+    <string name="Calendar">Calendar</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
