@@ -38,7 +38,7 @@ public class ClassesAdapter extends
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ClassesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -50,7 +50,7 @@ public class ClassesAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ClassesAdapter.ViewHolder holder, int position) {
         Class c = cClasses.get(position);
 
         TextView textView1 = holder.nameTextView;
@@ -59,7 +59,6 @@ public class ClassesAdapter extends
         textView2.setText(c.getTime());
         TextView textView3 = holder.instructorTextView;
         textView3.setText(c.getInstructor());
-
     }
 
     // return total count of class items in the list
