@@ -14,6 +14,12 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_AssignmentsFragment"
+            app:destination="@id/AssignmentsFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_ToDoFragment"
+            app:destination="@id/ToDoFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -24,5 +30,19 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AssignmentsFragment"
+        android:name="com.example.schedulenow.AssignmentFragment"
+        android:label="@string/assignments_fragment_label" >
+        <!-- Add any additional fragment configurations here -->
+    </fragment>
+
+    <fragment
+        android:id="@+id/ToDoFragment"
+        android:name="com.example.schedulenow.ToDoFragment"
+        android:label="ToDoFragment">
+        <!-- Other fragment configurations -->
     </fragment>
 </navigation>

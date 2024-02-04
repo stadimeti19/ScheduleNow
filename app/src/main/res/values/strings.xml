@@ -4,6 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="assignments_fragment_label">Assignment Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="home">ScheduleNow</string>
@@ -11,12 +12,11 @@
     <string name="Assignments">Assignments</string>
     <string name="ToDo">To-Do</string>
     <string name="Calendar">Calendar</string>
-    <string name="add_class">Add Class</string>
     <string name="add_new_class">Add New Class</string>
     <string name="class_name">Class Name</string>
     <string name="class_time">Class Time</string>
     <string name="class_instructor">Class Instructor</string>
-    <string name="cancel">Cancel</string>
     <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
 </resources>
