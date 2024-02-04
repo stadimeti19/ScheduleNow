@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/addNewClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/add_new_class"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/editClassName"
+        />
+
+    <EditText
+        android:id="@+id/editClassName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:autofillHints="Class name"
+        android:hint="@string/class_name"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addNewClass" />
+
+    <EditText
+        android:id="@+id/editClassTime"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:hint="@string/class_time"
+        android:inputType="text"
+        android:autofillHints="Class time"
+        app:layout_constraintTop_toBottomOf="@id/editClassName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editClassInstructor"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:autofillHints="Class instructor"
+        android:hint="@string/class_instructor"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editClassTime" />
+
+    <Button
+        android:id="@+id/addClassButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/add"
+        app:layout_constraintTop_toBottomOf="@id/editClassInstructor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/cancelClassButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/cancel"
+        app:layout_constraintTop_toBottomOf="@id/addClassButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

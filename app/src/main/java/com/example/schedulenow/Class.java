@@ -31,7 +31,7 @@ public class Class {
         ArrayList<Class> classes = new ArrayList<Class>();
         // loop and add each new class to the array
         for (int i = 1; i <= numClasses; i++) {
-            classes.add(new Class("Class " + ++lastClassId, "Time " + i, "Instructor " + i));
+            classes.add(new Class("Class " + (++lastClassId), "Time " + i, "Instructor " + i));
         }
         // return the array of classes
         return classes;

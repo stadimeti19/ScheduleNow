@@ -1,41 +1,128 @@
 package com.example.schedulenow;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulenow.databinding.FragmentSecondBinding;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+    private ArrayList<Class> classes;
+    private ClassesAdapter adapter;
 
+    // you need a way to store and retrieve data, even if the app is closed and reopened
+    // to do this, you can store the data as a JSON string in SharedPreferences
+    private static final String PREFS_NAME = "ClassPrefs";
+    private static final String KEY_CLASSES_LIST = "classesList";
+
+    @SuppressLint("NotifyDataSetChanged")
     @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                            Bundle savedInstanceState
     ) {
-
         binding = FragmentSecondBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        View root = binding.getRoot();
 
+        // Initialize classes and adapter member variables
+        classes = new ArrayList<>();
+        adapter = new ClassesAdapter(requireContext(), classes);
+
+        // Find the correct RecyclerView layout
+        RecyclerView recyclerView = root.findViewById(R.id.rvClasses);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        recyclerView.setAdapter(adapter);
+
+        loadClassesPreferences();
+
+        adapter.notifyDataSetChanged();
+
+        // Find the floating action button from the xml file
+        com.google.android.material.floatingactionbutton.FloatingActionButton floatingButton =
+                root.findViewById(R.id.floatingAddClasses);
+
+        floatingButton.setOnClickListener(view -> showDialogAddClass());
+
+        return root;
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    // Populate dialog box for user to add classes
+    @SuppressLint("NotifyDataSetChanged")
+    private void showDialogAddClass() {
+        // Create AlertDialog to pop up
+        AlertDialog.Builder classBuilder = new AlertDialog.Builder(requireContext());
+        View dialogView = getLayoutInflater().inflate(R.layout.add_class_dialog, null);
+        classBuilder.setView(dialogView);
+        AlertDialog dialog = classBuilder.create();
 
-//        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(SecondFragment.this)
-//                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-//            }
-//        });
+        // Find the views from the dialog class layout
+        EditText editClassName = dialogView.findViewById(R.id.editClassName);
+        EditText editClassTime = dialogView.findViewById(R.id.editClassTime);
+        EditText editClassInstructor = dialogView.findViewById(R.id.editClassInstructor);
+        Button addClassButton = dialogView.findViewById(R.id.addClassButton);
+        Button cancelClassButton = dialogView.findViewById(R.id.cancelClassButton);
+
+        addClassButton.setOnClickListener(view -> {
+            String className = editClassName.getText().toString();
+            String classTime = editClassTime.getText().toString();
+            String classInstructor = editClassInstructor.getText().toString();
+
+            // check if the fields are not empty before creating new class
+            if (!className.isEmpty() && !classInstructor.isEmpty() && !classTime.isEmpty()) {
+                classes.add(new Class(className, classTime, classInstructor));
+                saveClassPreferences();
+                adapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+
+        // set up click listener for cancel button to dismiss dialog
+        cancelClassButton.setOnClickListener(view -> dialog.dismiss());
+        dialog.show();
+    }
+
+    private void loadClassesPreferences() {
+        SharedPreferences preferences = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String classesJSON = preferences.getString(KEY_CLASSES_LIST, null);
+
+        if (classesJSON != null) {
+            Type listType = new TypeToken<List<Class>>() {}.getType();
+            List<Class> loadedClasses = new Gson().fromJson(classesJSON, listType);
+
+            classes.clear();
+            classes.addAll(loadedClasses);
+        }
+    }
+
+    private void saveClassPreferences(){
+        SharedPreferences preferences = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        String classesJSON = new Gson().toJson(classes);
+
+        editor.putString(KEY_CLASSES_LIST, classesJSON);
+        editor.apply();
     }
 
     @Override

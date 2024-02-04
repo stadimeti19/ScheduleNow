@@ -1,9 +1,11 @@
 package com.example.schedulenow;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ public class ClassesAdapter extends
         public TextView nameTextView;
         public TextView timeTextView;
         public TextView instructorTextView;
+        public Button deleteClassButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -25,21 +28,26 @@ public class ClassesAdapter extends
             nameTextView = (TextView) itemView.findViewById(R.id.class_name);
             timeTextView = (TextView) itemView.findViewById(R.id.class_time);
             instructorTextView = (TextView) itemView.findViewById(R.id.class_instructor);
+            deleteClassButton = (Button) itemView.findViewById(R.id.deleteClassButton);
 
+//            deleteClassButton.setOnClickListener(view -> removeClass(getAbsoluteAdapterPosition()));
         }
     }
 
     // member variable for the classes
     private List<Class> cClasses;
+    private Context context;
+    private static final String PREFS_NAME = "ClassPrefs";
+    private static final String KEY_CLASSES_LIST = "classesList";
 
-    public ClassesAdapter(List<Class> classes) {
+    public ClassesAdapter(Context context, List<Class> classes) {
+        this.context = context;
         cClasses = classes;
     }
 
     @NonNull
     @Override
     public ClassesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // inflate the custom layout
@@ -60,6 +68,16 @@ public class ClassesAdapter extends
         TextView textView3 = holder.instructorTextView;
         textView3.setText(c.getInstructor());
     }
+
+
+//    private void removeClass(int position) {
+//        if (position < cClasses.size() && position >= 0) {
+//            cClasses.remove(position);
+//            notifyItemRemoved(position);
+//            notifyItemRangeChanged(position, cClasses.size());
+//            saveClassPreferences();
+//        }
+//    }
 
     // return total count of class items in the list
     @Override
