@@ -22,7 +22,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new_Assignment">Add New Assignment</string>
     <string name="assignment_title">Assignment Title</string>
-    <string name="assignment_due_date">Due Date</string>
+    <string name="assignment_due_date">Due Date (yyyy/mm/dd)</string>
     <string name="assignment_class">Assignment Associated Class</string>
     <string name="edit">Edit</string>
+    <string name="sort_assignments">Sort</string>
 </resources>

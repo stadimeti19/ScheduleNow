@@ -25,6 +25,19 @@ public class Assignment {
         return assignmentClass;
     }
 
+    // New methods for editing assignment details
+    public void setTitle(String assignmentTitle) {
+        this.assignmentTitle = assignmentTitle;
+    }
+
+    public void setDueDate(String assignmentDueDate) {
+        this.assignmentDueDate = assignmentDueDate;
+    }
+
+    public void setAClass(String assignmentClass) {
+        this.assignmentClass = assignmentClass;
+    }
+
     private static int lastAssignmentId = 0;
     public static ArrayList<Assignment> createAssignmentsList(int numAssignments) {
         // create ArrayList of type Assignment for each respective assignments

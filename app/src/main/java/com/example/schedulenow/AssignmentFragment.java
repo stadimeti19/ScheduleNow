@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class AssignmentFragment extends Fragment {
@@ -44,8 +45,7 @@ public class AssignmentFragment extends Fragment {
 
         // Initialize assignments and adapter member variables
         assignments = new ArrayList<>();
-        adapter = new AssignmentsAdapter(requireContext(), assignments, unused -> saveAssignmentPreferences());
-
+        adapter = new AssignmentsAdapter(requireContext(), assignments, unused -> saveAssignmentPreferences(), this::showEditAssignmentDialog);
         // Find the correct RecyclerView layout
         RecyclerView recyclerView = root.findViewById(R.id.rvAssignments);
 
@@ -61,6 +61,9 @@ public class AssignmentFragment extends Fragment {
                 root.findViewById(R.id.floatingAddAssignments);
 
         floatingButton.setOnClickListener(view -> showDialogAddAssignment());
+
+        Button sortButton = root.findViewById(R.id.sortButton);
+        sortButton.setOnClickListener(view -> showSortOptionsDialog());
 
         return root;
     }
@@ -100,6 +103,53 @@ public class AssignmentFragment extends Fragment {
         dialog.show();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    private void showEditAssignmentDialog(Assignment assignmentToEdit) {
+        // Create AlertDialog to pop up
+        AlertDialog.Builder assignmentBuilder = new AlertDialog.Builder(requireContext());
+        View dialogView = getLayoutInflater().inflate(R.layout.edit_assignment_dialog, null);
+        assignmentBuilder.setView(dialogView);
+        AlertDialog dialog = assignmentBuilder.create();
+
+        // Find the views from the dialog class layout
+        EditText editAssignmentTitle = dialogView.findViewById(R.id.editAssignmentTitle);
+        EditText editAssignmentDueDate = dialogView.findViewById(R.id.editAssignmentDueDate);
+        EditText editAssignmentClass = dialogView.findViewById(R.id.editAssignmentClass);
+        Button saveAssignmentButton = dialogView.findViewById(R.id.saveAssignmentButton);
+        Button cancelAssignmentButton = dialogView.findViewById(R.id.cancelAssignmentButton);
+
+        // Set the initial values
+        editAssignmentTitle.setText(assignmentToEdit.getTitle());
+        editAssignmentDueDate.setText(assignmentToEdit.getDueDate());
+        editAssignmentClass.setText(assignmentToEdit.getAClass());
+
+        saveAssignmentButton.setOnClickListener(view -> {
+            // Retrieve edited values
+            String updatedTitle = editAssignmentTitle.getText().toString();
+            String updatedDueDate = editAssignmentDueDate.getText().toString();
+            String updatedClass = editAssignmentClass.getText().toString();
+
+            // Update the assignment in the list
+            assignmentToEdit.setTitle(updatedTitle);
+            assignmentToEdit.setDueDate(updatedDueDate);
+            assignmentToEdit.setAClass(updatedClass);
+
+            // Save the updated assignments list
+            saveAssignmentPreferences();
+
+            // Notify the adapter of the change
+            adapter.notifyDataSetChanged();
+
+            // Dismiss the dialog
+            dialog.dismiss();
+        });
+
+        // set up click listener for cancel button to dismiss dialog
+        cancelAssignmentButton.setOnClickListener(view -> dialog.dismiss());
+
+        dialog.show();
+    }
+
     private void loadAssignmentsPreferences() {
         SharedPreferences preferences = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String assignmentsJSON = preferences.getString(KEY_ASSIGNMENTS_LIST, null);
@@ -121,6 +171,52 @@ public class AssignmentFragment extends Fragment {
 
         editor.putString(KEY_ASSIGNMENTS_LIST, assignmentsJSON);
         editor.apply();
+    }
+
+    private void showSortOptionsDialog() {
+        // Logic to show a dialog or dropdown with sorting options
+        // Using AlertDialog for a list of sorting options
+        AlertDialog.Builder sortBuilder = new AlertDialog.Builder(requireContext());
+        sortBuilder.setTitle("Sort Options");
+
+        // Add sorting options to the list
+        String[] options = {"Sort by Due Date", "Sort by Course (Alphabetical)"};
+        sortBuilder.setItems(options, (dialog, selection) -> {
+            // Handle the selected sorting option
+            switch (selection) {
+                case 0:
+                    sortAssignmentsByDueDate();
+                    break;
+                case 1:
+                    sortAssignmentsByClass();
+                    break;
+            }
+        });
+        sortBuilder.create().show();
+    }
+
+    private void sortAssignmentsByClass() {
+        selectionSorter(assignments, Comparator.comparing(Assignment::getAClass));
+        adapter.notifyDataSetChanged();
+    }
+
+    private void sortAssignmentsByDueDate() {
+        selectionSorter(assignments, Comparator.comparing(Assignment::getDueDate));
+        adapter.notifyDataSetChanged();
+    }
+
+    private void selectionSorter(ArrayList<Assignment> assignments, Comparator<Assignment> comparator) {
+        for (int i = 0; i < assignments.size() - 1; ++i) {
+            int index = i;
+            for (int j = i + 1; j < assignments.size(); ++j) {
+                if (comparator.compare(assignments.get(j), assignments.get(index)) < 0) {
+                    index = j;
+                }
+            }
+            Assignment temp = assignments.get(i);
+            assignments.set(i, assignments.get(index));
+            assignments.set(index, temp);
+        }
     }
 
     @Override

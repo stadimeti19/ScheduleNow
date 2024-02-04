@@ -19,6 +19,7 @@ public class AssignmentsAdapter extends
         public TextView dueDateTextView;
         public TextView classTextView;
         public Button deleteAssignmentButton;
+        public Button editAssignmentButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -32,6 +33,15 @@ public class AssignmentsAdapter extends
                     removeAssignment(position);
                 }
             });
+            editAssignmentButton = (Button) itemView.findViewById(R.id.editAssignmentButton);
+            editAssignmentButton.setOnClickListener(view -> {
+                int position = getAbsoluteAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    Assignment assignment = assignments.get(position);
+                    onEditAssignmentCallback.accept(assignment);
+                }
+            });
+
         }
     }
 
@@ -39,13 +49,15 @@ public class AssignmentsAdapter extends
     private List<Assignment> assignments;
     private Context context;
     private Consumer<Void> onAssignmentRemovedCallback; // Callback to be invoked on assignment removal
+    private Consumer<Assignment> onEditAssignmentCallback;
     private static final String PREFS_NAME = "AssignmentPrefs";
     private static final String KEY_ASSIGNMENTS_LIST = "assignmentsList";
 
-    public AssignmentsAdapter(Context context, List<Assignment> assignments, Consumer<Void> onAssignmentRemovedCallback) {
+    public AssignmentsAdapter(Context context, List<Assignment> assignments, Consumer<Void> onAssignmentRemovedCallback, Consumer<Assignment> onEditAssignmentCallback) {
         this.context = context;
         this.assignments = assignments;
         this.onAssignmentRemovedCallback = onAssignmentRemovedCallback;
+        this.onEditAssignmentCallback = onEditAssignmentCallback;
     }
 
     @NonNull
