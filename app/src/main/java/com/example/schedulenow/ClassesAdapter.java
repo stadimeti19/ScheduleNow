@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ClassesAdapter extends
     RecyclerView.Adapter<ClassesAdapter.ViewHolder> {
@@ -29,20 +30,26 @@ public class ClassesAdapter extends
             timeTextView = (TextView) itemView.findViewById(R.id.class_time);
             instructorTextView = (TextView) itemView.findViewById(R.id.class_instructor);
             deleteClassButton = (Button) itemView.findViewById(R.id.deleteClassButton);
-
-//            deleteClassButton.setOnClickListener(view -> removeClass(getAbsoluteAdapterPosition()));
+            deleteClassButton.setOnClickListener(view -> {
+                int position = getAbsoluteAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    removeClass(position);
+                }
+            });
         }
     }
 
     // member variable for the classes
     private List<Class> cClasses;
     private Context context;
+    private Consumer<Void> onClassRemovedCallback; // Callback to be invoked on assignment removal
     private static final String PREFS_NAME = "ClassPrefs";
     private static final String KEY_CLASSES_LIST = "classesList";
 
-    public ClassesAdapter(Context context, List<Class> classes) {
+    public ClassesAdapter(Context context, List<Class> classes, Consumer<Void> onClassRemovedCallback) {
         this.context = context;
         cClasses = classes;
+        this.onClassRemovedCallback = onClassRemovedCallback;
     }
 
     @NonNull
@@ -70,14 +77,14 @@ public class ClassesAdapter extends
     }
 
 
-//    private void removeClass(int position) {
-//        if (position < cClasses.size() && position >= 0) {
-//            cClasses.remove(position);
-//            notifyItemRemoved(position);
-//            notifyItemRangeChanged(position, cClasses.size());
-//            saveClassPreferences();
-//        }
-//    }
+    private void removeClass(int position) {
+        if (position < cClasses.size() && position >= 0) {
+            cClasses.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, cClasses.size());
+            onClassRemovedCallback.accept(null); // Notify the fragment
+        }
+    }
 
     // return total count of class items in the list
     @Override

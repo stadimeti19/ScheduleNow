@@ -46,7 +46,7 @@ public class SecondFragment extends Fragment {
 
         // Initialize classes and adapter member variables
         classes = new ArrayList<>();
-        adapter = new ClassesAdapter(requireContext(), classes);
+        adapter = new ClassesAdapter(requireContext(), classes, unused -> saveClassPreferences());
 
         // Find the correct RecyclerView layout
         RecyclerView recyclerView = root.findViewById(R.id.rvClasses);

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/addNewAssignment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/add_new_Assignment"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/editAssignmentTitle"
+        />
+
+    <EditText
+        android:id="@+id/editAssignmentTitle"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:autofillHints="Assignment Title"
+        android:hint="@string/assignment_title"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addNewAssignment" />
+
+    <EditText
+        android:id="@+id/editAssignmentDueDate"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:hint="@string/assignment_due_date"
+        android:inputType="text"
+        android:autofillHints="Assignment dueDate"
+        app:layout_constraintTop_toBottomOf="@id/editAssignmentTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editAssignmentClass"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:autofillHints="Assignment Class"
+        android:hint="@string/assignment_class"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editAssignmentDueDate" />
+
+    <Button
+        android:id="@+id/addAssignmentButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/add"
+        app:layout_constraintTop_toBottomOf="@id/editAssignmentClass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/cancelAssignmentButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/cancel"
+        app:layout_constraintTop_toBottomOf="@id/addAssignmentButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
