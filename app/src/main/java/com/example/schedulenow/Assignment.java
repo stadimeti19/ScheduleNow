@@ -1,7 +1,5 @@
 package com.example.schedulenow;
 
-import java.util.ArrayList;
-
 public class Assignment {
     private String assignmentTitle;
     private String assignmentDueDate;

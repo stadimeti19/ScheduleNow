@@ -1,7 +1,4 @@
 package com.example.schedulenow;
-
-import java.util.ArrayList;
-
 public class Exam {
     private String examTitle;
     private String examDate;
