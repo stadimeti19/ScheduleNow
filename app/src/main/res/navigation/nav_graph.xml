@@ -3,46 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.schedulenow.FirstFragment"
+        android:id="@+id/HomeFragment"
+        android:name="com.example.schedulenow.HomeFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_HomeFragment_to_ClassFragment"
+            app:destination="@id/ClassFragment" />
         <action
-            android:id="@+id/action_FirstFragment_to_AssignmentsFragment"
+            android:id="@+id/action_HomeFragment_to_AssignmentsFragment"
             app:destination="@id/AssignmentsFragment" />
         <action
-            android:id="@+id/action_FirstFragment_to_ToDoFragment"
+            android:id="@+id/action_HomeFragment_to_ToDoFragment"
             app:destination="@id/ToDoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.schedulenow.SecondFragment"
+        android:id="@+id/ClassFragment"
+        android:name="com.example.schedulenow.ClassFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_class">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_ClassFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/AssignmentsFragment"
         android:name="com.example.schedulenow.AssignmentFragment"
         android:label="@string/assignments_fragment_label" >
-        <!-- Add any additional fragment configurations here -->
     </fragment>
 
     <fragment
         android:id="@+id/ToDoFragment"
         android:name="com.example.schedulenow.ToDoFragment"
         android:label="ToDoFragment">
-        <!-- Other fragment configurations -->
     </fragment>
 </navigation>

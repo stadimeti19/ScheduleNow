@@ -19,15 +19,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schedulenow.databinding.FragmentSecondBinding;
+import com.example.schedulenow.databinding.FragmentClassBinding;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondFragment extends Fragment {
+public class ClassFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentClassBinding binding;
     private ArrayList<Class> classes;
     private ClassesAdapter adapter;
 
@@ -41,7 +41,7 @@ public class SecondFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState
     ) {
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentClassBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         // Initialize classes and adapter member variables
