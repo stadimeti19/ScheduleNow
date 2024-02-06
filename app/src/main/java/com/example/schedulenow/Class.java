@@ -36,16 +36,4 @@ public class Class {
     public String getInstructor() {
         return cInstructor;
     }
-
-    private static int lastClassId = 0;
-    public static ArrayList<Class> createClassesList(int numClasses) {
-        // create ArrayList of type Class for each respective class
-        ArrayList<Class> classes = new ArrayList<Class>();
-        // loop and add each new class to the array
-        for (int i = 1; i <= numClasses; i++) {
-            classes.add(new Class("Class " + (++lastClassId), "Time " + i, "Instructor " + i));
-        }
-        // return the array of classes
-        return classes;
-    }
 }

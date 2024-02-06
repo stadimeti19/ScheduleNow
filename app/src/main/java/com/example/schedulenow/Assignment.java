@@ -37,16 +37,4 @@ public class Assignment {
     public void setAClass(String assignmentClass) {
         this.assignmentClass = assignmentClass;
     }
-
-    private static int lastAssignmentId = 0;
-    public static ArrayList<Assignment> createAssignmentsList(int numAssignments) {
-        // create ArrayList of type Assignment for each respective assignments
-        ArrayList<Assignment> assignments = new ArrayList<Assignment>();
-        // loop and add each new assignment to the array
-        for (int i = 1; i <= numAssignments; i++) {
-            assignments.add(new Assignment("Title " + (++lastAssignmentId), "DueDate " + i, "Asscociated Class " + i));
-        }
-        // return the array of assignments
-        return assignments;
-    }
 }

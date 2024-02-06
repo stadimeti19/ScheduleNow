@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/edit_assignment_dialog.xml -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,38 +7,42 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/editAssignmentTitle"
+        android:id="@+id/editExamTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#546E7A"
-        android:inputType="text"
-        android:hint="Title" />
+        android:hint="@string/title" />
 
     <EditText
-        android:id="@+id/editAssignmentDueDate"
+        android:id="@+id/editExamDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
         android:textColorHint="#546E7A"
-        android:hint="Due Date" />
+        android:hint="@string/date" />
 
     <EditText
-        android:id="@+id/editAssignmentClass"
+        android:id="@+id/editExamTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
         android:textColorHint="#546E7A"
-        android:hint="Class" />
+        android:hint="@string/time" />
 
-    <Button
-        android:id="@+id/saveAssignmentButton"
+    <EditText
+        android:id="@+id/editExamLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:textColorHint="#546E7A"
+        android:hint="@string/location" />
 
     <Button
-        android:id="@+id/cancelAssignmentButton"
+        android:id="@+id/saveExamButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cancel" />
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/cancelExamButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel" />
 </LinearLayout>

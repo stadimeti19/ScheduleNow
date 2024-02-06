@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/HomeFragment"
         android:name="com.example.schedulenow.HomeFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -18,13 +18,16 @@
             android:id="@+id/action_HomeFragment_to_AssignmentsFragment"
             app:destination="@id/AssignmentsFragment" />
         <action
+            android:id="@+id/action_HomeFragment_to_ExamFragment"
+            app:destination="@id/ExamFragment" />
+        <action
             android:id="@+id/action_HomeFragment_to_ToDoFragment"
             app:destination="@id/ToDoFragment" />
     </fragment>
     <fragment
         android:id="@+id/ClassFragment"
         android:name="com.example.schedulenow.ClassFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/class_fragment_label"
         tools:layout="@layout/fragment_class">
 
         <action
@@ -36,6 +39,12 @@
         android:id="@+id/AssignmentsFragment"
         android:name="com.example.schedulenow.AssignmentFragment"
         android:label="@string/assignments_fragment_label" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/ExamFragment"
+        android:name="com.example.schedulenow.ExamFragment"
+        android:label="@string/exam_fragment_label" >
     </fragment>
 
     <fragment

@@ -84,6 +84,7 @@ public class AssignmentsAdapter extends
             textView3.setText(a.getAClass());
         }
     }
+
     private void removeAssignment(int position) {
         if (position < assignments.size() && position >= 0) {
             assignments.remove(position);
@@ -98,6 +99,5 @@ public class AssignmentsAdapter extends
     public int getItemCount() {
         return assignments.size();
     }
-
 
 }

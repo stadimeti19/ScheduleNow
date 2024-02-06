@@ -8,75 +8,89 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/addNewAssignment"
+        android:id="@+id/addNewExam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:text="@string/add_new_Assignment"
+        android:text="@string/add_new_Exam"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/editAssignmentTitle"
+        app:layout_constraintBottom_toTopOf="@id/editExamTitle"
         />
 
     <EditText
-        android:id="@+id/editAssignmentTitle"
+        android:id="@+id/editExamTitle"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="9dp"
-        android:autofillHints="Assignment Title"
-        android:hint="@string/assignment_title"
+        android:autofillHints="Exam Title"
+        android:hint="@string/exam_title"
         android:inputType="text"
         android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addNewAssignment" />
+        app:layout_constraintTop_toBottomOf="@id/addNewExam" />
 
     <EditText
-        android:id="@+id/editAssignmentDueDate"
+        android:id="@+id/editExamDate"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="9dp"
-        android:hint="@string/due_date"
+        android:hint="@string/exam_date"
         android:inputType="text"
-        android:autofillHints="Assignment dueDate"
-        app:layout_constraintTop_toBottomOf="@id/editAssignmentTitle"
+        android:textColorHint="#546E7A"
+        android:autofillHints="Exam Date"
+        app:layout_constraintTop_toBottomOf="@id/editExamTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editAssignmentClass"
+        android:id="@+id/editExamTime"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="9dp"
-        android:autofillHints="Assignment Class"
-        android:hint="@string/assignment_class"
+        android:hint="@string/exam_time"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        android:autofillHints="Exam Time"
+        app:layout_constraintTop_toBottomOf="@id/editExamDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editExamLocation"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:autofillHints="Exam Location"
+        android:hint="@string/exam_location"
         android:inputType="text"
         android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editAssignmentDueDate" />
+        app:layout_constraintTop_toBottomOf="@id/editExamTime" />
 
     <Button
-        android:id="@+id/addAssignmentButton"
+        android:id="@+id/addExamButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:text="@string/add"
-        app:layout_constraintTop_toBottomOf="@id/editAssignmentClass"
+        app:layout_constraintTop_toBottomOf="@id/editExamLocation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/cancelAssignmentButton"
+        android:id="@+id/cancelExamButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:text="@string/cancel"
-        app:layout_constraintTop_toBottomOf="@id/addAssignmentButton"
+        app:layout_constraintTop_toBottomOf="@id/addExamButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -9,7 +9,7 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/assignments_home"
+        android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@id/assignments_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assignments_home" />
+        app:layout_constraintTop_toBottomOf="@+id/home" />
 
     <Button
         android:id="@+id/assignments_button"
@@ -41,10 +41,21 @@
         android:layout_height="wrap_content"
         android:background="@color/homeBackground"
         android:text="@string/Assignments"
-        app:layout_constraintBottom_toTopOf="@id/todo_button"
+        app:layout_constraintBottom_toTopOf="@id/exams_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classes_button" />
+
+    <Button
+        android:id="@+id/exams_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/homeBackground"
+        android:text="@string/Exams"
+        app:layout_constraintBottom_toTopOf="@id/todo_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assignments_button" />
 
     <Button
         android:id="@+id/todo_button"
@@ -55,7 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assignments_button" />
+        app:layout_constraintTop_toBottomOf="@+id/exams_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

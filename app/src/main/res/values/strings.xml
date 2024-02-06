@@ -2,8 +2,9 @@
     <string name="app_name">ScheduleNow</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Home Fragment</string>
-    <string name="second_fragment_label">Class Fragment</string>
+    <string name="home_fragment_label">Home Fragment</string>
+    <string name="class_fragment_label">Class Fragment</string>
+    <string name="exam_fragment_label">Exam Fragment</string>
     <string name="assignments_fragment_label">Assignment Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
@@ -11,6 +12,7 @@
     <string name="Classes">Classes</string>
     <string name="Assignments">Assignments</string>
     <string name="ToDo">To-Do</string>
+    <string name="Exams">Exams</string>
     <string name="Calendar">Calendar</string>
     <string name="add_new_class">Add New Class</string>
     <string name="class_name">Class Name</string>
@@ -21,9 +23,19 @@
     <string name="delete">Delete</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new_Assignment">Add New Assignment</string>
+    <string name="add_new_Exam">Add New Exam</string>
+    <string name="exam_time">Exam Time</string>
     <string name="assignment_title">Assignment Title</string>
-    <string name="assignment_due_date">Due Date (yyyy/mm/dd)</string>
+    <string name="exam_title">Exam Title</string>
+    <string name="due_date">Due Date (yyyy/mm/dd)</string>
     <string name="assignment_class">Assignment Associated Class</string>
+    <string name="exam_location">Exam Location</string>
+    <string name="exam_date">Exam Date</string>
     <string name="edit">Edit</string>
     <string name="sort_assignments">Sort</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="location">Location</string>
+    <string name="save">Save</string>
 </resources>
