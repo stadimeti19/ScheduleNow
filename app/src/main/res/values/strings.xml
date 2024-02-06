@@ -38,4 +38,7 @@
     <string name="time">Time</string>
     <string name="location">Location</string>
     <string name="save">Save</string>
+    <string name="aClass">Class</string>
+    <string name="name">Name</string>
+    <string name="instructor">Instructor</string>
 </resources>

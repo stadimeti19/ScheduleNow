@@ -52,8 +52,7 @@
             android:layout_height="wrap_content"
             android:text="@string/edit"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
-            android:onClick="onClickEditExam" />
+            android:layout_marginTop="6dp" />
 
         <Button
             android:id="@+id/deleteExamButton"
@@ -61,7 +60,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="6dp"
-            android:onClick="onClickDeleteExam"
             android:text="@string/delete" />
 
     </LinearLayout>

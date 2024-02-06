@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textColorHint="#546E7A"
         android:inputType="text"
-        android:hint="Title" />
+        android:hint="@string/assignment_title" />
 
     <EditText
         android:id="@+id/editAssignmentDueDate"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:textColorHint="#546E7A"
-        android:hint="Due Date" />
+        android:hint="@string/due_date" />
 
     <EditText
         android:id="@+id/editAssignmentClass"
@@ -28,17 +28,18 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:textColorHint="#546E7A"
-        android:hint="Class" />
+        android:hint="@string/assignment_class"
+        />
 
     <Button
         android:id="@+id/saveAssignmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:text="@string/save" />
 
     <Button
         android:id="@+id/cancelAssignmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 </LinearLayout>

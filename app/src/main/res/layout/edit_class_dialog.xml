@@ -10,31 +10,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Name" />
+        android:hint="@string/name" />
 
     <EditText
         android:id="@+id/editClassTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="TIme" />
+        android:hint="@string/time" />
 
     <EditText
         android:id="@+id/editClassInstructor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Instructor" />
+        android:hint="@string/instructor" />
 
     <Button
         android:id="@+id/saveClassButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:text="@string/save" />
 
     <Button
         android:id="@+id/cancelClassButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 </LinearLayout>

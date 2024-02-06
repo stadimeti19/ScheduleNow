@@ -45,8 +45,7 @@
             android:layout_height="wrap_content"
             android:text="@string/edit"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
-            android:onClick="onClickEditClass" />
+            android:layout_marginTop="6dp" />
 
         <Button
             android:id="@+id/deleteClassButton"
@@ -54,7 +53,6 @@
             android:layout_height="wrap_content"
             android:text="@string/delete"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
-            android:onClick="onClickDeleteClass" />
+            android:layout_marginTop="6dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
