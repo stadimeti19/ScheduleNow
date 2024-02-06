@@ -19,7 +19,7 @@ public class ToDoAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView detailsTextView;
         public TextView dueDateTextView;
-        public Button deleteToDoButton;
+        public Button completeToDoButton;
         public Button editToDoButton;
 
         public ViewHolder(View itemView) {
@@ -27,8 +27,8 @@ public class ToDoAdapter extends
 
             detailsTextView = (TextView) itemView.findViewById(R.id.todo_details);
             dueDateTextView = (TextView) itemView.findViewById(R.id.todo_due_date);
-            deleteToDoButton = (Button) itemView.findViewById(R.id.deleteToDoButton);
-            deleteToDoButton.setOnClickListener(view -> {
+            completeToDoButton = (Button) itemView.findViewById(R.id.completeToDoButton);
+            completeToDoButton.setOnClickListener(view -> {
                 int position = getAbsoluteAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
                     removeToDo(position);
