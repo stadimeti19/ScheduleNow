@@ -46,7 +46,7 @@ public class ClassFragment extends Fragment {
 
         // Initialize classes and adapter member variables
         classes = new ArrayList<>();
-        adapter = new ClassesAdapter(requireContext(), classes, unused -> saveClassPreferences());
+        adapter = new ClassesAdapter(requireContext(), classes, unused -> saveClassPreferences(), this::showEditClassDialog);
 
         // Find the correct RecyclerView layout
         RecyclerView recyclerView = root.findViewById(R.id.rvClasses);
@@ -99,6 +99,53 @@ public class ClassFragment extends Fragment {
 
         // set up click listener for cancel button to dismiss dialog
         cancelClassButton.setOnClickListener(view -> dialog.dismiss());
+        dialog.show();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void showEditClassDialog(Class classToEdit) {
+        // Create AlertDialog to pop up
+        AlertDialog.Builder classBuilder = new AlertDialog.Builder(requireContext());
+        View dialogView = getLayoutInflater().inflate(R.layout.edit_class_dialog, null);
+        classBuilder.setView(dialogView);
+        AlertDialog dialog = classBuilder.create();
+
+        // Find the views from the dialog class layout
+        EditText editClassName = dialogView.findViewById(R.id.editClassName);
+        EditText editClassTime = dialogView.findViewById(R.id.editClassTime);
+        EditText editClassInstructor = dialogView.findViewById(R.id.editClassInstructor);
+        Button saveClassButton = dialogView.findViewById(R.id.saveClassButton);
+        Button cancelClassButton = dialogView.findViewById(R.id.cancelClassButton);
+
+        // Set the initial values
+        editClassName.setText(classToEdit.getName());
+        editClassTime.setText(classToEdit.getTime());
+        editClassInstructor.setText(classToEdit.getInstructor());
+
+        saveClassButton.setOnClickListener(view -> {
+            // Retrieve edited values
+            String updatedName = editClassName.getText().toString();
+            String updatedTime = editClassTime.getText().toString();
+            String updatedInstructor = editClassInstructor.getText().toString();
+
+            // Update the assignment in the list
+            classToEdit.setcName(updatedName);
+            classToEdit.setcTime(updatedTime);
+            classToEdit.setcInstructor(updatedInstructor);
+
+            // Save the updated assignments list
+            saveClassPreferences();
+
+            // Notify the adapter of the change
+            adapter.notifyDataSetChanged();
+
+            // Dismiss the dialog
+            dialog.dismiss();
+        });
+
+        // set up click listener for cancel button to dismiss dialog
+        cancelClassButton.setOnClickListener(view -> dialog.dismiss());
+
         dialog.show();
     }
 

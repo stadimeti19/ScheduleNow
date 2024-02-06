@@ -13,6 +13,18 @@ public class Class {
         cInstructor = instructor;
     }
 
+    // New methods for editing assignment details
+    public void setcName(String cName) {
+        this.cName = cName;
+    }
+
+    public void setcTime(String cTime) {
+        this.cTime = cTime;
+    }
+
+    public void setcInstructor(String cInstructor) {
+        this.cInstructor = cInstructor;
+    }
     public String getName() {
         return cName;
     }

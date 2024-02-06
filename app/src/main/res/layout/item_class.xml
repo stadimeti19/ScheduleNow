@@ -40,6 +40,15 @@
             android:layout_marginTop="6dp" />
 
         <Button
+            android:id="@+id/editClassButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:onClick="onClickEditClass" />
+
+        <Button
             android:id="@+id/deleteClassButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

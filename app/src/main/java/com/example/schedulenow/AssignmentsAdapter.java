@@ -84,16 +84,6 @@ public class AssignmentsAdapter extends
             textView3.setText(a.getAClass());
         }
     }
-
-
-//    private void removeClass(int position) {
-//        if (position < cClasses.size() && position >= 0) {
-//            cClasses.remove(position);
-//            notifyItemRemoved(position);
-//            notifyItemRangeChanged(position, cClasses.size());
-//            saveClassPreferences();
-//        }
-//    }
     private void removeAssignment(int position) {
         if (position < assignments.size() && position >= 0) {
             assignments.remove(position);

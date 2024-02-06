@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schedulenow.databinding.FragmentAssignmentsBinding;
+import com.example.schedulenow.databinding.FragmentAssignmentBinding;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -26,7 +26,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AssignmentFragment extends Fragment {
-    private FragmentAssignmentsBinding binding;
+    private FragmentAssignmentBinding binding;
     private ArrayList<Assignment> assignments;
     private AssignmentsAdapter adapter;
 
@@ -40,7 +40,7 @@ public class AssignmentFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState
     ) {
-        binding = FragmentAssignmentsBinding.inflate(inflater, container, false);
+        binding = FragmentAssignmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         // Initialize assignments and adapter member variables
