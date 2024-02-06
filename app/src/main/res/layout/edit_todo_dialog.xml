@@ -1,0 +1,33 @@
+<!-- res/layout/edit_assignment_dialog.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editToDoName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#546E7A"
+        android:hint="@string/toDo_name" />
+
+    <EditText
+        android:id="@+id/editToDoDueDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#546E7A"
+        android:hint="@string/toDo_dueDate" />
+
+    <Button
+        android:id="@+id/saveToDoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/cancelToDoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel" />
+</LinearLayout>
