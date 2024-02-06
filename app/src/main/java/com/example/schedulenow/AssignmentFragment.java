@@ -187,7 +187,7 @@ public class AssignmentFragment extends Fragment {
         sortBuilder.setTitle("Sort Options");
 
         // Add sorting options to the list
-        String[] options = {"Sort by Due Date", "Sort by Course (Alphabetical)"};
+        String[] options = {"Sort by Due Date", "Sort by Course (Alphabetical)", "Sort by Progress"};
         sortBuilder.setItems(options, (dialog, selection) -> {
             // Handle the selected sorting option
             switch (selection) {
@@ -196,6 +196,9 @@ public class AssignmentFragment extends Fragment {
                     break;
                 case 1:
                     sortAssignmentsByClass();
+                    break;
+                case 2:
+                    sortAssignmentsByProgress();
                     break;
             }
         });
@@ -209,6 +212,11 @@ public class AssignmentFragment extends Fragment {
 
     private void sortAssignmentsByDueDate() {
         selectionSorter(assignments, Comparator.comparing(Assignment::getDueDate));
+        adapter.notifyDataSetChanged();
+    }
+
+    private void sortAssignmentsByProgress() {
+        selectionSorter(assignments, Comparator.comparing(Assignment::getAssignmentProgress).reversed());
         adapter.notifyDataSetChanged();
     }
 
