@@ -41,4 +41,5 @@
     <string name="aClass">Class</string>
     <string name="name">Name</string>
     <string name="instructor">Instructor</string>
+    <string name="add_todo_item">Add To-do Item</string>
 </resources>
