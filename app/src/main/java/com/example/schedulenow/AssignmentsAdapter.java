@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ public class AssignmentsAdapter extends
         public TextView classTextView;
         public Button deleteAssignmentButton;
         public Button editAssignmentButton;
+        public ProgressBar progressBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -41,6 +43,7 @@ public class AssignmentsAdapter extends
                     onEditAssignmentCallback.accept(assignment);
                 }
             });
+            progressBar = itemView.findViewById(R.id.assignment_progressBar);
 
         }
     }
@@ -82,6 +85,7 @@ public class AssignmentsAdapter extends
             textView2.setText(a.getDueDate());
             TextView textView3 = holder.classTextView;
             textView3.setText(a.getAClass());
+            holder.progressBar.setProgress(a.getAssignmentProgress());
         }
     }
 

@@ -60,13 +60,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editAssignmentDueDate" />
 
+    <EditText
+        android:id="@+id/editAssignmentProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        android:hint="@string/assignment_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editAssignmentClass"
+
+        />
+
     <Button
         android:id="@+id/addAssignmentButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:text="@string/add"
-        app:layout_constraintTop_toBottomOf="@id/editAssignmentClass"
+        app:layout_constraintTop_toBottomOf="@id/editAssignmentProgress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

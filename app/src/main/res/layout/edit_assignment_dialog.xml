@@ -31,6 +31,15 @@
         android:hint="@string/assignment_class"
         />
 
+    <EditText
+        android:id="@+id/editAssignmentProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textColorHint="#546E7A"
+        android:hint="@string/assignment_class"
+        />
+
     <Button
         android:id="@+id/saveAssignmentButton"
         android:layout_width="match_parent"

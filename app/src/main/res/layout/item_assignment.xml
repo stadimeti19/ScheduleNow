@@ -17,6 +17,13 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
+        <ProgressBar
+            android:id="@+id/assignment_progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/cardBackground"
+            style="?android:attr/progressBarStyleHorizontal" />
+
         <TextView
             android:id="@+id/assignment_title"
             android:layout_width="match_parent"

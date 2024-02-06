@@ -81,6 +81,7 @@ public class AssignmentFragment extends Fragment {
         EditText editAssignmentTitle = dialogView.findViewById(R.id.editAssignmentTitle);
         EditText editAssignmentDueDate = dialogView.findViewById(R.id.editAssignmentDueDate);
         EditText editAssignmentClass = dialogView.findViewById(R.id.editAssignmentClass);
+        EditText editAssignmentProgress = dialogView.findViewById(R.id.editAssignmentProgress); // New EditText for progress
         Button addAssignmentButton = dialogView.findViewById(R.id.addAssignmentButton);
         Button cancelAssignmentButton = dialogView.findViewById(R.id.cancelAssignmentButton);
 
@@ -88,10 +89,11 @@ public class AssignmentFragment extends Fragment {
             String assignmentTitle = editAssignmentTitle.getText().toString();
             String assignmentDueDate = editAssignmentDueDate.getText().toString();
             String assignmentClass = editAssignmentClass.getText().toString();
+            int assignmentProgress = Integer.parseInt(editAssignmentProgress.getText().toString()); // Parse progress from EditText
 
             // check if the fields are not empty before creating new assignment
             if (!assignmentTitle.isEmpty() && !assignmentClass.isEmpty() && !assignmentDueDate.isEmpty()) {
-                assignments.add(new Assignment(assignmentTitle, assignmentDueDate, assignmentClass));
+                assignments.add(new Assignment(assignmentTitle, assignmentDueDate, assignmentClass, assignmentProgress));
                 saveAssignmentPreferences();
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
@@ -115,6 +117,7 @@ public class AssignmentFragment extends Fragment {
         EditText editAssignmentTitle = dialogView.findViewById(R.id.editAssignmentTitle);
         EditText editAssignmentDueDate = dialogView.findViewById(R.id.editAssignmentDueDate);
         EditText editAssignmentClass = dialogView.findViewById(R.id.editAssignmentClass);
+        EditText editAssignmentProgress = dialogView.findViewById(R.id.editAssignmentProgress); // New EditText for progress
         Button saveAssignmentButton = dialogView.findViewById(R.id.saveAssignmentButton);
         Button cancelAssignmentButton = dialogView.findViewById(R.id.cancelAssignmentButton);
 
@@ -122,17 +125,21 @@ public class AssignmentFragment extends Fragment {
         editAssignmentTitle.setText(assignmentToEdit.getTitle());
         editAssignmentDueDate.setText(assignmentToEdit.getDueDate());
         editAssignmentClass.setText(assignmentToEdit.getAClass());
+        editAssignmentProgress.setText(String.valueOf(assignmentToEdit.getAssignmentProgress())); // Set progress value
 
         saveAssignmentButton.setOnClickListener(view -> {
             // Retrieve edited values
             String updatedTitle = editAssignmentTitle.getText().toString();
             String updatedDueDate = editAssignmentDueDate.getText().toString();
             String updatedClass = editAssignmentClass.getText().toString();
+            int updatedProgress = Integer.parseInt(editAssignmentProgress.getText().toString()); // Parse progress from EditText
+
 
             // Update the assignment in the list
             assignmentToEdit.setTitle(updatedTitle);
             assignmentToEdit.setDueDate(updatedDueDate);
             assignmentToEdit.setAClass(updatedClass);
+            assignmentToEdit.setAssignmentProgress(updatedProgress); // Set updated progress
 
             // Save the updated assignments list
             saveAssignmentPreferences();
