@@ -11,7 +11,7 @@ public class Class {
         cInstructor = instructor;
     }
 
-    // New methods for editing assignment details
+    // methods for editing class details
     public void setcName(String cName) {
         this.cName = cName;
     }
@@ -23,6 +23,8 @@ public class Class {
     public void setcInstructor(String cInstructor) {
         this.cInstructor = cInstructor;
     }
+
+    // methods for getting class details
     public String getName() {
         return cName;
     }

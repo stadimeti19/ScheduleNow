@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-    <!--    Floating Button at Bottom Right to Add an Assignment-->
+    <!--    Floating Button at Bottom Right to Add an Exam-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingAddExams"
         android:layout_width="wrap_content"

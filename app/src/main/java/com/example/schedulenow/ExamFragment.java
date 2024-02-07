@@ -72,7 +72,7 @@ public class ExamFragment extends Fragment {
         examBuilder.setView(dialogView);
         AlertDialog dialog = examBuilder.create();
 
-        // Find the views from the dialog class layout
+        // Find the views from the dialog exam layout
         EditText editExamTitle = dialogView.findViewById(R.id.editExamTitle);
         EditText editExamDate = dialogView.findViewById(R.id.editExamDate);
         EditText editExamTime = dialogView.findViewById(R.id.editExamTime);
@@ -108,7 +108,7 @@ public class ExamFragment extends Fragment {
         examBuilder.setView(dialogView);
         AlertDialog dialog = examBuilder.create();
 
-        // Find the views from the dialog class layout
+        // Find the views from the dialog exam layout
         EditText editExamTitle = dialogView.findViewById(R.id.editExamTitle);
         EditText editExamDate = dialogView.findViewById(R.id.editExamDate);
         EditText editExamTime = dialogView.findViewById(R.id.editExamTime);

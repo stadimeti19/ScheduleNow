@@ -205,21 +205,26 @@ public class AssignmentFragment extends Fragment {
         sortBuilder.create().show();
     }
 
+    // sorting case by class
     private void sortAssignmentsByClass() {
         selectionSorter(assignments, Comparator.comparing(Assignment::getAClass));
         adapter.notifyDataSetChanged();
     }
 
+    // sorting case by due date
     private void sortAssignmentsByDueDate() {
         selectionSorter(assignments, Comparator.comparing(Assignment::getDueDate));
         adapter.notifyDataSetChanged();
     }
 
+    // sorting case by progress
     private void sortAssignmentsByProgress() {
         selectionSorter(assignments, Comparator.comparing(Assignment::getAssignmentProgress).reversed());
         adapter.notifyDataSetChanged();
     }
 
+    // sorter that uses comparator to determine what to sort by
+    // and carries out the sort using Selection Sort
     private void selectionSorter(ArrayList<Assignment> assignments, Comparator<Assignment> comparator) {
         for (int i = 0; i < assignments.size() - 1; ++i) {
             int index = i;

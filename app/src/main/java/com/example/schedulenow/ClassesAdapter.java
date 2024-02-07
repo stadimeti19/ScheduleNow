@@ -48,10 +48,10 @@ public class ClassesAdapter extends
         }
     }
 
-    // member variable for the classes
+    // more member variables for classes
     private List<Class> cClasses;
     private Context context;
-    private Consumer<Void> onClassRemovedCallback; // Callback to be invoked on assignment removal
+    private Consumer<Void> onClassRemovedCallback; // Callback to be invoked on class removal
     private Consumer<Class> onEditClassCallback;
 
     private static final String PREFS_NAME = "ClassPrefs";
@@ -89,6 +89,7 @@ public class ClassesAdapter extends
         }
     }
 
+    // method to properly remove the class if user wants to remove
     private void removeClass(int position) {
         if (position < cClasses.size() && position >= 0) {
             cClasses.remove(position);

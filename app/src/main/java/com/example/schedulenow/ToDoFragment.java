@@ -45,7 +45,7 @@ public class ToDoFragment extends Fragment {
         binding = FragmentToDoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Initialize classes and adapter member variables
+        // Initialize toDos and adapter member variables
         toDos = new ArrayList<>();
         adapter = new ToDoAdapter(requireContext(), toDos, unused -> saveToDoPreferences(), this::showEditToDoDialog);
 
@@ -71,7 +71,7 @@ public class ToDoFragment extends Fragment {
         return root;
     }
 
-    // Populate dialog box for user to add classes
+    // Populate dialog box for user to add toDos
     @SuppressLint("NotifyDataSetChanged")
     private void showDialogAddToDo() {
         // Create AlertDialog to pop up
@@ -80,7 +80,7 @@ public class ToDoFragment extends Fragment {
         todoBuilder.setView(dialogView);
         AlertDialog dialog = todoBuilder.create();
 
-        // Find the views from the dialog class layout
+        // Find the views from the dialog todo layout
         EditText editToDoName = dialogView.findViewById(R.id.editToDoName);
         EditText editToDoDueDate = dialogView.findViewById(R.id.editToDoDueDate);
         Button addToDoButton = dialogView.findViewById(R.id.addToDoButton);
@@ -90,7 +90,7 @@ public class ToDoFragment extends Fragment {
             String todoName = editToDoName.getText().toString();
             String todoTime = editToDoDueDate.getText().toString();
 
-            // check if the fields are not empty before creating new class
+            // check if the fields are not empty before creating new todo
             if (!todoName.isEmpty() && !todoTime.isEmpty()) {
                 toDos.add(new ToDo(todoName, todoTime));
                 saveToDoPreferences();
@@ -111,11 +111,11 @@ public class ToDoFragment extends Fragment {
         todoBuilder.setView(dialogView);
         AlertDialog dialog = todoBuilder.create();
 
-        // Find the views from the dialog class layout
+        // Find the views from the dialog todo layout
         EditText editToDoName = dialogView.findViewById(R.id.editToDoName);
         EditText editToDoDueDate = dialogView.findViewById(R.id.editToDoDueDate);
         Button saveToDoButton = dialogView.findViewById(R.id.saveToDoButton);
-        Button cancelAssignmentButton = dialogView.findViewById(R.id.cancelToDoButton);
+        Button cancelToDoButton = dialogView.findViewById(R.id.cancelToDoButton);
 
         // Set the initial values
         editToDoName.setText(toDoToEdit.getName());
@@ -141,7 +141,7 @@ public class ToDoFragment extends Fragment {
         });
 
         // set up click listener for cancel button to dismiss dialog
-        cancelAssignmentButton.setOnClickListener(view -> dialog.dismiss());
+        cancelToDoButton.setOnClickListener(view -> dialog.dismiss());
 
         dialog.show();
     }

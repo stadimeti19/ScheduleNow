@@ -45,7 +45,7 @@ public class ToDoAdapter extends
         }
     }
 
-    // member variable for the classes
+    // member variable for the todos
     private List<ToDo> toDos;
     private Context context;
     private Consumer<Void> onToDoRemovedCallback; // Callback to be invoked on todo removal
@@ -90,7 +90,7 @@ public class ToDoAdapter extends
         }
     }
 
-    // return total count of class items in the list
+    // return total count of todo items in the list
     @Override
     public int getItemCount () {
         return toDos.size();

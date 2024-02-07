@@ -83,6 +83,7 @@ public class ClassFragment extends Fragment {
         Button addClassButton = dialogView.findViewById(R.id.addClassButton);
         Button cancelClassButton = dialogView.findViewById(R.id.cancelClassButton);
 
+        // set up click listener for the add class button
         addClassButton.setOnClickListener(view -> {
             String className = editClassName.getText().toString();
             String classTime = editClassTime.getText().toString();
@@ -122,24 +123,25 @@ public class ClassFragment extends Fragment {
         editClassTime.setText(classToEdit.getTime());
         editClassInstructor.setText(classToEdit.getInstructor());
 
+        // set up click listener for the save button
         saveClassButton.setOnClickListener(view -> {
             // Retrieve edited values
             String updatedName = editClassName.getText().toString();
             String updatedTime = editClassTime.getText().toString();
             String updatedInstructor = editClassInstructor.getText().toString();
 
-            // Update the assignment in the list
+            // Update the class in the list
             classToEdit.setcName(updatedName);
             classToEdit.setcTime(updatedTime);
             classToEdit.setcInstructor(updatedInstructor);
 
-            // Save the updated assignments list
+            // Save the updated classes list using the method
             saveClassPreferences();
 
             // Notify the adapter of the change
             adapter.notifyDataSetChanged();
 
-            // Dismiss the dialog
+            // Dismiss the dialog at the end when done
             dialog.dismiss();
         });
 
