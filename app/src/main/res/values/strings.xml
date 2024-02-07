@@ -45,5 +45,5 @@
     <string name="instructor">Instructor</string>
     <string name="add_todo_item">Add To-do Item</string>
     <string name="complete">Complete</string>
-    <string name="assignment_progress">Assignment Progress</string>
+    <string name="assignment_progress">Assignment Progress (0-100%)</string>
 </resources>
