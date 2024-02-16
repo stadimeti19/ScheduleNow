@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:textColorHint="#546E7A"
-        android:hint="@string/assignment_class"
+        android:hint="@string/assignment_progress"
         />
 
     <Button
